@@ -1,0 +1,38 @@
+[
+    {
+        "nr": "SO111111",
+        "items": 5,
+        "status": "Ready for delivery",
+        "location": "45-01"
+    },
+    {
+        "nr": "SO111112",
+        "items": 10,
+        "status": "Ready for delivery",
+        "location": "45-02"
+    },
+    {
+        "nr": "SO111113",
+        "items": 2,
+        "status": "Ready for delivery",
+        "location": "45-03" 
+    },
+    {
+        "nr": "SO111114",
+        "items": 4,
+        "status": "Ready for delivery",
+        "location": "45-04"
+    },
+    {
+        "nr": "SO111115",
+        "items": 40,
+        "status": "Ready for delivery",
+        "location": "45-05"
+    },
+    {
+        "nr": "SO111116",
+        "items": 1,
+        "status": "Ready for delivery",
+        "location": "45-06"
+    }
+]
