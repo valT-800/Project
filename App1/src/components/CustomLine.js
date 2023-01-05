@@ -20,10 +20,10 @@ const styles = StyleSheet.create(
         flexDirection: 'row'
     },
     label: {
-        fontSize: 20,
+        fontSize: 15,
     },
     text: {
-        fontSize: 30,
+        fontSize: 20,
         fontWeight: '500',
     }  
 }

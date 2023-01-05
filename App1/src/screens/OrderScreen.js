@@ -15,8 +15,9 @@ import Dialog from 'react-native-dialog';
 
 
 function OrderScreen({route,  navigation: {navigate}}) {
-  const { id, nr, items, status, location } = route.params;  
+  const { id, nr, items, status, location, arrived_at, customer_name } = route.params;  
   const [visibility, setVisibility] = useState(false)
+
   const reference = app.database()  
 
   const Confirm = () => {
@@ -30,7 +31,8 @@ function OrderScreen({route,  navigation: {navigate}}) {
         <Dialog.Button label="No" onPress={()=>{setVisibility(false)}}/>
         <Dialog.Button label="Yes" onPress={() =>{
           reference.ref('orders/'+ id).update({
-            status: "Delivered"
+            status: "Delivered",
+            delivered_at: getCurrentTime()
           })
           .then(() => {
             navigate('Orders')
@@ -39,6 +41,14 @@ function OrderScreen({route,  navigation: {navigate}}) {
       </Dialog.Container>
     );     
       
+  }
+  const getCurrentTime = () => {
+    let today = new Date();
+    let date = today.getDate();
+    let hours = (today.getHours() < 10 ? '0' : '') + today.getHours();
+    let minutes = (today.getMinutes() < 10 ? '0' : '') + today.getMinutes();
+    let seconds = (today.getSeconds() < 10 ? '0' : '') + today.getSeconds();
+    return date + " " + hours + ':' + minutes + ':' + seconds;
   }
 
   /*const updateOrderStatus = () => {
@@ -62,10 +72,12 @@ function OrderScreen({route,  navigation: {navigate}}) {
 
   return (
     <SafeAreaView style={styles.container}>
+      
       <View>
         <Line label="Order nr:  " text = {nr}/>
         <Line label="Items:  " text = {items}/>
         <Line label="Location:  " text={location}/>
+        <Line label="Customer name:  " text ={customer_name}/>
       </View>      
       <ButtonComponent title="Delivered" event = {() => setVisibility(true)}/>
       <Confirm/>

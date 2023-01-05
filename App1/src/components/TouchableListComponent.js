@@ -2,15 +2,16 @@ import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 
-const TouchableComponent = ({nr, location, event}) => {
+const TouchableComponent = ({title, subtitle1, subtitle2, event}) => {
     return(
         <TouchableOpacity
         style ={styles.listItem}       
         onPress = {event}
         >
             <View style = {{flexDirection: 'row', alignItems: 'flex-end'}}>
-                <Text style = {styles.nr}>{nr}</Text>
-                <Text style = {styles.location}>{location}</Text>
+                <Text style = {styles.title}>{title}</Text>
+                <Text style = {styles.subtitle1}>{subtitle1}</Text>
+                <Text style = {styles.subtitle1}>{subtitle2}</Text>
             </View>
             
             
@@ -24,24 +25,24 @@ const styles  = StyleSheet.create(
             alignItems: 'flex-start',
             justifyContent: 'flex-start',
             height: 50,
-            width: 220,
+            width: 310,
             borderWidth: 1,
             borderRadius: 5,
             padding: 5,
             borderColor: 'rgba(200,200,200,0.5)',
             borderStyle: 'solid',
         },
-        nr: {
+        title: {
             marginLeft: 10,
-            fontSize: 20,
+            fontSize: 17,
             fontWeight: '500',
             textAlign: 'center',
             color: 'darkslategrey'
             
         },
-        location: {
-            marginLeft: 20,
-            fontSize:15,
+        subtitle1: {
+            marginLeft: 15,
+            fontSize:14,
             fontWeight: '500',
             textAlign: 'center',
             color: 'slategrey'

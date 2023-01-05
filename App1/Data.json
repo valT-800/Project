@@ -1,38 +1,74 @@
 [
     {
+        "id": "bl40vkKv40",
         "nr": "SO111111",
         "items": 5,
         "status": "Ready for delivery",
-        "location": "45-01"
+        "location": "45-01",
+        "customer":
+        {
+            "id": "afewip47q0",
+            "name": "Jonas Petrauskas"
+        }
     },
     {
+        "id": "fj6j69JCf7",
         "nr": "SO111112",
         "items": 10,
         "status": "Ready for delivery",
-        "location": "45-02"
+        "location": "45-02",
+        "customer":
+        {
+            "id": "afewip47q0",
+            "name": "Jonas Petrauskas"
+        }
     },
     {
+        "id": "mgi607JF5k",
         "nr": "SO111113",
         "items": 2,
         "status": "Ready for delivery",
-        "location": "45-03" 
+        "location": "45-03",
+        "customer":
+        {
+            "id": "afewip47q0",
+            "name": "Jonas Petrauskas"
+        } 
     },
     {
+        "id": "JD6fmr0n92",
         "nr": "SO111114",
         "items": 4,
         "status": "Ready for delivery",
-        "location": "45-04"
+        "location": "45-04",
+        "customer":
+        {
+            "id": "afewip47q0",
+            "name": "Jonas Petrauskas"
+        }
     },
     {
+        "id": "fig60e3F0L",
         "nr": "SO111115",
         "items": 40,
         "status": "Ready for delivery",
-        "location": "45-05"
+        "location": "45-05",
+        "customer":
+        {
+            "id": "afewip47q0",
+            "name": "Jonas Petrauskas"
+        }
     },
     {
+        "id": "mvvie40gfn",
         "nr": "SO111116",
         "items": 1,
         "status": "Ready for delivery",
-        "location": "45-06"
+        "location": "45-06",
+        "customer":
+        {
+            "id": "afewip47q0",
+            "name": "Jonas Petrauskas"
+        }
     }
 ]

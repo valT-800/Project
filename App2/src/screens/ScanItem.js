@@ -10,6 +10,17 @@ function ScanItem({navigation: {navigate}}) {
     const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
   
+  const getCurrentTime = () => {
+    let today = new Date();
+    let year = today.getFullYear();
+    let month = today.getMonth();
+    let date = today.getDate();
+    let hours = (today.getHours() < 10 ? '0' : '') + today.getHours();
+    let minutes = (today.getMinutes() < 10 ? '0' : '') + today.getMinutes();
+    let seconds = (today.getSeconds() < 10 ? '0' : '') + today.getSeconds();
+    return year + "-" + month + "-" + date + " " + hours + ':' + minutes + ':' + seconds;
+  }
+
   useEffect(() => {
     const getBarCodeScannerPermissions = async () => {
       const { status } = await BarCodeScanner.requestPermissionsAsync();
@@ -19,8 +30,10 @@ function ScanItem({navigation: {navigate}}) {
     getBarCodeScannerPermissions();
   }, []);
 
+  
   const handleBarCodeScanned = ({ type, data }) => {
     setScanned(true);
+
     alert(`Your order ${data} will be in a minute`);
 
     handleSubmit(data)
@@ -34,11 +47,15 @@ function ScanItem({navigation: {navigate}}) {
       alert(`ID ${snapshot.key}`)
       snapshot.forEach((child) => {
         alert(`ID ${child.key}`)
-        reference.ref(`/orders/${child.key}`).update({status: "Waiting"}).then(() => {
+        reference.ref(`/orders/${child.key}`).update({
+          status: "Waiting",
+          arrived_at: getCurrentTime()
+      }).then(() => {
         navigate('Start')});
     })
   })  
 }
+
   if (hasPermission === null) {
     return <Text>Requesting for camera permission</Text>;
   }
