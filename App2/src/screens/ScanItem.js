@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { SafeAreaView, Button, TextInput, Text, View, StyleSheet } from "react-native";
 import Styles from "../../Styles";
-import ButtonComponent from "../components/ButtonComponent";
+import CustomButton from "../components/CustomButton";
 import app from "../../firebaseConfig";
 import { BarCodeScanner } from 'expo-barcode-scanner';
 import 'firebase/compat/database'
@@ -42,17 +42,19 @@ function ScanItem({navigation: {navigate}}) {
 
   const handleSubmit = (nr) => {
     
-    reference.ref().child('orders').orderByChild('nr').equalTo(nr).once('value').then(snapshot => { 
-      
-      alert(`ID ${snapshot.key}`)
-      snapshot.forEach((child) => {
-        alert(`ID ${child.key}`)
+    reference.ref().child('orders').orderByChild('status').equalTo('Ready for delivery').orderByChild('nr').equalTo(nr).once('value').then(snapshot => { 
+      if(snapshot.exists){
+        snapshot.forEach((child) => {
         reference.ref(`/orders/${child.key}`).update({
           status: "Waiting",
           arrived_at: getCurrentTime()
       }).then(() => {
         navigate('Start')});
     })
+      }else{
+        alert(`Something went wrong your order is being prepared or it is already delivered`)
+      }
+      
   })  
 }
 
@@ -69,7 +71,7 @@ function ScanItem({navigation: {navigate}}) {
         onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
         style={StyleSheet.absoluteFillObject}
       />
-      {scanned && <ButtonComponent title={'Tap to Scan Again'} event={() => 
+      {scanned && <CustomButton title={'Tap to Scan Again'} event={() => 
         setScanned(false)}
         />}
       </SafeAreaView>
