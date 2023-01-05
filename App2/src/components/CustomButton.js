@@ -1,6 +1,6 @@
 import React from "react";
 import { Text, Button, StyleSheet, TouchableHighlight, TouchableOpacity } from "react-native";
-const ButtonComponent = ({title, event}) => {
+const CustomButton = ({title, event}) => {
     return(
         <TouchableOpacity
         style ={styles.button}
@@ -15,7 +15,8 @@ const ButtonComponent = ({title, event}) => {
 const styles  = StyleSheet.create(
     {
         button: {
-            alignSelf: 'center',
+            alignItems: 'center',
+            justifyContent: 'center',
             marginTop: 10,
             paddingVertical: 12,
             paddingHorizontal: 22,
@@ -33,4 +34,4 @@ const styles  = StyleSheet.create(
         }
     }
 )
-export default ButtonComponent;
+export default CustomButton;

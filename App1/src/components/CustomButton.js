@@ -1,35 +1,36 @@
-import React from 'react';
-import {View, StyleSheet, Text, TouchableWithoutFeedback} from 'react-native';
-
-const CustomButton = ({title, onPress, disabled}) => (
-  <View style={styles.addButtonContainer}>
-    <TouchableWithoutFeedback onPress={onPress} disabled={disabled}>
-      <View style={[styles.addButton, {backgroundColor: disabled === false ? 'turquoise' : 'darkturquoise'}]}>
-        <Text style={styles.addButtonText}>{title}</Text>
-      </View>
-    </TouchableWithoutFeedback>
-  </View>
-);
-
-const styles = StyleSheet.create({
-  addButtonText: {
-    fontSize: 22,
-    lineHeight: 22,
-  },
-  addButton: {
-    width: 120,
-    height: 40,
-    marginLeft: 10,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 15,
-  },
-  addButtonContainer: {
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    marginBottom: 10,
-    marginTop: 10
-  },
-});
-
+import React from "react";
+import { Text, Button, StyleSheet, TouchableHighlight, TouchableOpacity } from "react-native";
+const CustomButton = ({title, event}) => {
+    return(
+        <TouchableOpacity
+        style ={styles.button}
+        title = {title}
+        onPress = {event}
+        >
+            <Text style = {styles.buttonLabel}>{title}</Text>
+        </TouchableOpacity>
+        
+    )
+}
+const styles  = StyleSheet.create(
+    {
+        button: {
+            alignSelf: 'center',
+            marginTop: 10,
+            paddingVertical: 12,
+            paddingHorizontal: 22,
+            backgroundColor: 'turquoise',
+            borderWidth: 1,
+            borderRadius: 20,
+            borderColor: 'whitesmoke',
+            borderStyle: 'solid'
+        },
+        buttonLabel: {
+            fontSize: 20,
+            fontWeight: '500',
+            textAlign: 'center',
+            color: 'darkslategrey'
+        }
+    }
+)
 export default CustomButton;

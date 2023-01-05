@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 
-const TouchableComponent = ({title, subtitle1, subtitle2, event}) => {
+const CustomListComponent = ({title, subtitle1, subtitle2, event}) => {
     return(
         <TouchableOpacity
         style ={styles.listItem}       
@@ -49,4 +49,4 @@ const styles  = StyleSheet.create(
         },
     }
 )
-export default TouchableComponent;
+export default CustomListComponent;
