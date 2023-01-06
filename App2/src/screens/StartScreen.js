@@ -3,7 +3,7 @@ import {
 
   StyleSheet
 } from 'react-native';
-import ButtonComponent from '../components/ButtonComponent';
+import CustomButton from '../components/CustomButton';
 
 import 'firebase/compat/database'
 
@@ -14,8 +14,8 @@ export function StartScreen ({ navigation: {navigate}}) {
   return (
     <SafeAreaView style= {Styles.container}>
 
-      <ButtonComponent title = "Collect Order"
-      event={()=> {navigate('ScanItem')}}/>
+      <CustomButton title = "Collect Order"
+      event={()=> {navigate('Scan')}}/>
     </SafeAreaView>
   )
 }

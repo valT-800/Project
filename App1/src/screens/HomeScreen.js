@@ -1,12 +1,12 @@
 import { SafeAreaView, StyleSheet } from "react-native";
-import ButtonComponent from "../components/ButtonComponent";
+import CustomButton from "../components/CustomButton";
 
 export function HomeScreen ({ navigation: {navigate}}) {
 
     return(
         <SafeAreaView style= {styles.container}>
-            <ButtonComponent title="All orders" event = {() => navigate('Orders')}/>
-            <ButtonComponent title="Waiting orders" event = {() => navigate('WaitingOrders')}/>
+            <CustomButton title="All orders" event = {() => navigate('Orders')}/>
+            <CustomButton title="Waiting orders" event = {() => navigate('WaitingOrders')}/>
   
       </SafeAreaView>
     )

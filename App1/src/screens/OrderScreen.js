@@ -7,9 +7,9 @@ import {
   Text
 } from 'react-native';
 import app from '../../firebaseConfig';
-import ButtonComponent from '../components/ButtonComponent';
+import CustomButton from '../components/CustomButton';
 import 'firebase/compat/database'
-import Line from '../components/CustomLine';
+import CustomLine from '../components/CustomLine';
 import Dialog from 'react-native-dialog';
 
 
@@ -44,42 +44,25 @@ function OrderScreen({route,  navigation: {navigate}}) {
   }
   const getCurrentTime = () => {
     let today = new Date();
-    let date = today.getDate();
+    let year = today.getFullYear();
+    let month = today.getUTCMonth();
+    let date = today.getUTCDate();
     let hours = (today.getHours() < 10 ? '0' : '') + today.getHours();
     let minutes = (today.getMinutes() < 10 ? '0' : '') + today.getMinutes();
     let seconds = (today.getSeconds() < 10 ? '0' : '') + today.getSeconds();
-    return date + " " + hours + ':' + minutes + ':' + seconds;
+    return year + "-" + month + "-" + date + " " + hours + ':' + minutes + ':' + seconds;
   }
-
-  /*const updateOrderStatus = () => {
-    return(
-      reference.ref('orders/'+ id).update({
-        status: "Delivered"
-      })
-      .then(() => {
-        //removeOrderFromWaitingList()
-        //navigate('Orders')
-      })
-    )
-      
-
-  }*/
-  /*const removeOrderFromWaitingList = ()  => {
-    reference.ref("orders/"+id).remove()
-    .then(() => console.log('Deleted', id))
-    .catch(()=> console.log('nope'))
-  }*/
 
   return (
     <SafeAreaView style={styles.container}>
       
       <View>
-        <Line label="Order nr:  " text = {nr}/>
-        <Line label="Items:  " text = {items}/>
-        <Line label="Location:  " text={location}/>
-        <Line label="Customer name:  " text ={customer_name}/>
+        <CustomLine label="Order nr:  " text = {nr}/>
+        <CustomLine label="Items:  " text = {items}/>
+        <CustomLine label="Location:  " text={location}/>
+        <CustomLine label="Customer name:  " text ={customer_name}/>
       </View>      
-      <ButtonComponent title="Delivered" event = {() => setVisibility(true)}/>
+      <CustomButton title="Delivered" event = {() => setVisibility(true)}/>
       <Confirm/>
     </SafeAreaView>
   );

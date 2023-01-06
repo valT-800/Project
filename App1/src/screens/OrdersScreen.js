@@ -5,7 +5,7 @@ import {
     View,
     Text
   } from 'react-native';
-  import TouchableComponent from '../components/TouchableListComponent';
+  import CustomListComponent from '../components/CustomListComponent';
   import app from '../../firebaseConfig'
   import {useEffect} from 'react';
   import { useState } from "react";
@@ -51,12 +51,12 @@ import {
           data={orders}
           renderItem={({item}) => {
             return(
-              <TouchableComponent title = {item.nr}
+              <CustomListComponent title = {item.nr}
                 subtitle1 = {item.location}
                 subtitle2 = {item.status}
                 event =  {() => navigate('Order', item)}
                 >
-              </TouchableComponent>                
+              </CustomListComponent>                
             );
           }}
         ></FlatList>

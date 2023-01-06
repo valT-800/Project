@@ -5,7 +5,7 @@ import {
   View, 
   Text
 } from 'react-native';
-import TouchableComponent from '../components/TouchableListComponent';
+import CustomListComponent from '../components/CustomListComponent';
 import app from '../../firebaseConfig'
 import {useEffect} from 'react';
 import { useState } from "react";
@@ -47,8 +47,8 @@ export function WaitingOrdersScreen ({ navigation: {navigate}}) {
     const getCurrentTime = () => {
       let today = new Date();
       let year = today.getFullYear();
-      let month = today.getMonth();
-      let date = today.getDate();
+      let month = today.getUTCMonth();
+      let date = today.getUTCDate();
       let hours = (today.getHours() < 10 ? '0' : '') + today.getHours();
       let minutes = (today.getMinutes() < 10 ? '0' : '') + today.getMinutes();
       let seconds = (today.getSeconds() < 10 ? '0' : '') + today.getSeconds();
@@ -71,12 +71,12 @@ export function WaitingOrdersScreen ({ navigation: {navigate}}) {
         data={orders}
         renderItem={({item}) => {
           return(
-            <TouchableComponent title = {item.nr}
+            <CustomListComponent title = {item.nr}
               subtitle1 = {item.location}
               subtitle2 = {item.arrived_at}
               event =  {() => navigate('Order', item)}
               >
-            </TouchableComponent>                
+            </CustomListComponent>                
           );
         }}
       ></FlatList>
